@@ -9,7 +9,19 @@ import {
 	addTodo
 } from '../actions'
 
+
 class AddTodo extends Component {
+	handleSubmit(e) {
+		const {
+			dispatch
+		} = this.props;
+		const text = e.target.value.trim()
+		if (e.which == 13) {
+			e.target.value = "";
+			return dispatch(addTodo(text))
+
+		}
+	}
 	render() {
 		let input = "";
 		const {
@@ -21,8 +33,10 @@ class AddTodo extends Component {
 						<input  ref={node=>input=node}
 								className="new-todo"
 								placeholder="What needs to be done?"
+								onKeyDown={this.handleSubmit.bind(this)}
+								
 						/>
-				<button className="add-taskItem" onClick={function(){dispatch(addTodo(input.value))}}>Add</button>
+				<button className="add-taskItem" onClick={()=>{dispatch(addTodo(input.value));input.value=""}}>Add</button>
 					</div>
 				</header>
 	}

@@ -25,7 +25,7 @@ export default class Todolist extends Component {
 
 Todolist.propTypes = {
 	toggleTodo: PropTypes.func.isRequired,
-	delTask: PropTypes.func.isRequired,
+	delTodo: PropTypes.func.isRequired,
 	visibleTodos: PropTypes.arrayOf(PropTypes.shape({
 		text: PropTypes.string.isRequired,
 		completed: PropTypes.bool.isRequired
