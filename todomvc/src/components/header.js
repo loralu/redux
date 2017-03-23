@@ -15,11 +15,10 @@ class AddTodo extends Component {
 		const {
 			dispatch
 		} = this.props;
-		const text = e.target.value.trim()
-		if (e.which == 13) {
+		const text = e.target.value.trim(); //removes whitespace from both ends of a string
+		if (e.which == 13) { //e.which==13为键盘键为enter键
 			e.target.value = "";
 			return dispatch(addTodo(text))
-
 		}
 	}
 	render() {
@@ -33,10 +32,9 @@ class AddTodo extends Component {
 						<input  ref={node=>input=node}
 								className="new-todo"
 								placeholder="What needs to be done?"
-								onKeyDown={this.handleSubmit.bind(this)}
-								
+								onKeyDown={this.handleSubmit.bind(this)}								
 						/>
-				<button className="add-taskItem" onClick={()=>{dispatch(addTodo(input.value));input.value=""}}>Add</button>
+					<button className="add-taskItem" onClick={()=>{dispatch(addTodo(input.value));input.value=""}}>Add</button>
 					</div>
 				</header>
 	}
