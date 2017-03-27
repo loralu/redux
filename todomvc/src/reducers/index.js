@@ -40,6 +40,7 @@ function todos(state = initialState.todos, action) {
 			return state.filter(function(value, index) {
 				return index !== action.id
 			})
+			return
 		case 'CLEAR_COMPLETED':
 			return state.filter(function(value, index) {
 				return value.completed === false
